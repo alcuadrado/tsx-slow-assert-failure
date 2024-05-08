@@ -1,0 +1,12 @@
+{
+  "name": "tsx-slow-assert-failure",
+  "version": "1.0.0",
+  "private": "true",
+  "type": "module",
+  "devDependencies": {
+    "tsx": "4.9.3"
+  },
+  "dependencies": {
+    "@types/node": "^20.12.11"
+  }
+}

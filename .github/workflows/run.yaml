@@ -1,0 +1,23 @@
+name: Run the reproduction
+
+on: [push]
+
+jobs:
+  repro:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22.x"
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 8
+      - run: pnpm install
+      - name: Install hyperfine
+        run: |
+          wget https://github.com/sharkdp/hyperfine/releases/download/v1.16.1/hyperfine_1.16.1_amd64.deb
+          sudo dpkg -i hyperfine_1.16.1_amd64.deb
+      - run: bash run.sh
